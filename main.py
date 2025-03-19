@@ -2,7 +2,7 @@ import subprocess
 import sys
 import os
 
-def select_ovpn_file(directory="Path/to/this_dir"):
+def select_ovpn_file(directory=os.getcwd()):
     files = [f for f in os.listdir(directory) if f.endswith('.ovpn')]
     if not files:
         print(f"No .ovpn files found in directory: {directory}")
@@ -16,7 +16,7 @@ def select_ovpn_file(directory="Path/to/this_dir"):
         sys.exit(1)
     return files[choice]
 
-ovpn_config_file = "/Path/to/this_dir/{}".format(select_ovpn_file())
+ovpn_config_file = f"{0}/{1}".format(os.getcwd(),select_ovpn_file())
 def connect_vpn():
     if not os.path.exists(ovpn_config_file):
         print(f"Error: The OpenVPN config file does not exist: {ovpn_config_file}")
